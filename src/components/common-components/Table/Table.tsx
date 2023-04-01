@@ -21,7 +21,7 @@ const Table = ({ coins }: ITable) => {
             </thead>
             <tbody>
                 {coins?.map(coin => {
-                    return <BodyItem item={coin} />
+                    return <BodyItem key={coin.name + coin.priceUsd} item={coin} />
                 })}
             </tbody>
         </table>

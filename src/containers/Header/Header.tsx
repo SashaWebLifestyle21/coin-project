@@ -7,13 +7,17 @@ interface IHeader {
 }
 
 const Header = ({ popularCoins }: IHeader) => {
-    console.log('pop',popularCoins)
     return (
         <header className='header'>
             <div className='header-container _container'>
                 <div className='header-popular__block'>
                     {popularCoins?.map(coin => {
-                        return <p className='header-popular__text'>{`${Number(coin.priceUsd).toFixed(2)}$ (${coin.symbol})`}</p>
+                        return <p
+                            className='header-popular__text'
+                            key={coin.rank + coin.symbol}
+                        >
+                            {`${Number(coin.priceUsd).toFixed(2)}$ (${coin.symbol})`}
+                        </p>
                     })}
                 </div>
             </div>
