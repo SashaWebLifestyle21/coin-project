@@ -1,0 +1,18 @@
+.coin {
+  &__wrapper {
+    max-width: 788px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  &__text {
+    color: #143550;
+  }
+  &__main-text {
+    color: #143550;
+    font-size: 24px;
+  }
+  &__price{
+    color: #FFD700;
+    font-size: 26px;
+  }
+}

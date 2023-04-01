@@ -1,0 +1,19 @@
+.header {
+  padding: 25px;
+  background-color: #26272b;
+  margin-bottom: 20px;
+
+  &-popular {
+    &__block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10px;
+    }
+
+    &__text{
+      color: #FFD700;
+    }
+
+  }
+}
