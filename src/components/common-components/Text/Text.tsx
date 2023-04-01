@@ -7,7 +7,11 @@ interface IText extends PropsWithChildren {
 
 const Text = ({className, children}: IText) => {
     return (
-        <p className={`text ${className}`}>{children}</p>
+        <p
+            className={`text ${className}`}
+        >
+            {children}
+        </p>
     );
 };
 

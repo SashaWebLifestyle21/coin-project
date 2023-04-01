@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Home, { ICoin } from "./pages/Home/Home";
-import Coin from "./pages/Coin/Coin";
+import Coin, {ICoinHistory} from "./pages/Coin/Coin";
 import Layout from "./components/common-components/Layout/Layout";
 
 function App() {
-    console.log('app')
+
     const [coins, setCoins] = useState<ICoin[] | []>([])
     const [limit, setLimit] = useState(15)
 

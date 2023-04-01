@@ -1,0 +1,32 @@
+.coin-item {
+  &__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all .3s linear;
+    &:hover {
+      border: 2px solid #C1C4C6;
+    }
+  }
+  &__img{
+    width: 30px;
+    height: 30px;
+  }
+
+  &__title {
+    color: #C1C4C6;
+    font-size: 16px;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 24px;
+    color: #FFD700;
+  }
+
+
+}

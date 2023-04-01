@@ -15,10 +15,20 @@ const BodyItem = ({ item }: IBodyItem) => {
                 onClick={() => navigate(`/coin/${item.name}`)}
             >
                 <td className='table__td'>{item.rank}</td>
-                <td>{item.name}</td>
-                <td>{item.symbol}</td>
-                <td>{Number(item.priceUsd).toFixed(2)}</td>
-                <td>{Number(item.volumeUsd24Hr).toFixed(2)}</td>
+                <td className='table__td'>
+                    <div>
+                        <img
+                            src={`https://assets.coincap.io/assets/icons/${item.symbol.toLowerCase()}@2x.png`}
+                            alt={item.symbol}
+                            className="table__img"
+                        />
+                    </div>
+                    <p>{item.name}</p>
+                </td>
+                <td className='table__td'>{item.symbol}</td>
+                <td className='table__td'>{Number(item.priceUsd).toFixed(2)}</td>
+                <td className='table__td'>{Number(item.volumeUsd24Hr).toFixed(2)}</td>
+                <td className='table__td'></td>
             </tr>
 
     );

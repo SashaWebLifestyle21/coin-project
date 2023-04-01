@@ -3,12 +3,18 @@
   background-color: #26272b;
   margin-bottom: 20px;
 
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &-popular {
     &__block {
       display: flex;
       justify-content: center;
       align-items: center;
-      column-gap: 10px;
+      column-gap: 20px;
     }
 
     &__text{

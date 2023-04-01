@@ -7,7 +7,7 @@ interface ITitle extends PropsWithChildren {
 
 const Title = ({ children, className }: ITitle) => {
     return (
-        <h2 className={`title ${className}`}>{children}</h2>
+        <h2 className={`title ${className ? className : ''}`}>{children}</h2>
     );
 };
 
