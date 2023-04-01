@@ -1,8 +1,5 @@
-.home {
+.coin-item {
   &__wrapper {
-    margin: 0 auto;
-  }
-  &-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,11 +8,6 @@
     border-radius: 8px;
     margin: 2rem 1rem;
     padding: .7rem 1rem;
-    font-weight: 700;
-
-    &__text {
-      color: #FFFFFF;
-    }
   }
 
 }
