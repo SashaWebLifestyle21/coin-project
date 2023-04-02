@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import './CoinItem.scss'
 import { ICoin } from "../../../pages/Home/Home";
 import { useNavigate } from "react-router-dom";
