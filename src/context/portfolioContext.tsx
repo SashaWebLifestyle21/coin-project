@@ -52,7 +52,7 @@ export const PortfolioProvider = ({ children }: IPortfolioContextProvider) => {
             setPortfolioList(newPortfolioList)
             setTotal(total + coin.amount)
             setDifference(difference + coin.amount)
-            setPercent(calculatePercent(total, total + coin.amount))
+            setPercent(calculatePercent(total, 0))
             localStorage.setItem('portfolioList', JSON.stringify(newPortfolioList))
             localStorage.setItem('portfolioTotal', JSON.stringify(total + coin.amount))
         } else {
