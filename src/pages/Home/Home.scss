@@ -2,6 +2,9 @@
   &__wrapper {
     margin: 0 auto;
   }
+  &-table__wrapper {
+    overflow-x: auto;
+  }
   &-head {
     display: flex;
     justify-content: space-between;

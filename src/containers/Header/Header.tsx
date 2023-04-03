@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import './Header.scss'
 import {ICoin} from "../../pages/Home/Home";
 import CoinItem from "../../components/common-components/CoinItem/CoinItem";
@@ -14,12 +14,22 @@ interface IHeader {
 
 const Header = ({ popularCoins }: IHeader) => {
 
-    const {portfolioList, total, addPortfolioItem} = useContext(PortfolioContext) as PortfolioContextType
+    const { portfolioList, total, updatePortfolio, percent, difference } = useContext(PortfolioContext) as PortfolioContextType
+
+    const portfolioItemsIds = portfolioList.map(item => item.id).join(',')
 
     const [openHeaderModal, setOpenHeaderModal] = useState(false)
 
-    const [difference, setDifference] = useState(0)
-    const [percent, setPercent] = useState(0)
+    const fetchPortfolioList = useCallback(async () => {
+        const data = await fetch(`https://api.coincap.io/v2/assets?&ids=${portfolioItemsIds}`)
+            .then(res => res.json())
+        updatePortfolio(data.data)
+    }, [updatePortfolio])
+
+    useEffect(() => {
+        fetchPortfolioList()
+    }, [])
+
 
     return (
         <header className='header'>
@@ -34,7 +44,9 @@ const Header = ({ popularCoins }: IHeader) => {
                     onClick={() => setOpenHeaderModal(true)}
                 >
                     <Title className='header-portfolio__title'>Ваш портфель</Title>
-                    <Text>Total: {Number(total).toFixed(2)} USD + {difference} ({percent} %)</Text>
+                    <Text className='header-portfolio__text'>
+                        Total: {Number(total).toFixed(2)} USD + {difference.toFixed(2)} ({percent.toFixed(2)} %)
+                    </Text>
                 </div>
             </div>
             <Modal
@@ -43,7 +55,7 @@ const Header = ({ popularCoins }: IHeader) => {
             >
                 {portfolioList.length ?
                     portfolioList.map(item => {
-                    return <MyCoinItem myCoin={item} setOpenHeaderModal={setOpenHeaderModal} />
+                    return <MyCoinItem key={item.priceUsd + item.id} myCoin={item} setOpenHeaderModal={setOpenHeaderModal} />
                 })
                 : <Title>Ваш портфель пустой</Title>}
             </Modal>

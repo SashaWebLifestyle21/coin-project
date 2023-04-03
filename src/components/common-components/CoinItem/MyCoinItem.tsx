@@ -39,6 +39,9 @@ const MyCoinItem = ({ myCoin, setOpenHeaderModal }: IMyCoinItem) => {
                 <p className='coin-item__text'>Сумма: {Number(myCoin.amount).toFixed(2)}</p>
             </div>
             <div>
+                <p className='coin-item__text'>Кол-во: {myCoin.count}</p>
+            </div>
+            <div>
                 <Button onClick={() => removePortfolioItem(myCoin.id, myCoin.amount)}>Удалить</Button>
             </div>
         </div>

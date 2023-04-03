@@ -3,7 +3,7 @@ import './Home.scss'
 import Table from "../../components/common-components/Table/Table";
 import Button from "../../components/common-components/Button/Button";
 import Modal from "../../components/common-components/Modal/Modal";
-import {IPortfolio, PortfolioContext, PortfolioContextType} from "../../context/portfolioContext";
+import { PortfolioContext, PortfolioContextType } from "../../context/portfolioContext";
 
 export interface ICoin {
     id: string
@@ -31,22 +31,24 @@ const Home = ({ coins, nextCoins }: IHome) => {
     const [countCoin, setCountCoin] = useState<number>(1)
     const [currentCoin, setCurrentCoin] = useState<ICoin | null>(null)
 
-    const {portfolioList, total, addPortfolioItem} = useContext(PortfolioContext) as PortfolioContextType
+    const { addPortfolioItem } = useContext(PortfolioContext) as PortfolioContextType
 
     const handleAddPortfolio = () => {
         if(currentCoin) {
-            addPortfolioItem({...currentCoin, amount: countCoin * Number(currentCoin?.priceUsd)})
+            addPortfolioItem({...currentCoin, amount: countCoin * Number(currentCoin?.priceUsd), count: countCoin})
         }
         setOpenModal(false)
     }
 
     return (
         <div className='home__wrapper _container'>
-            <Table
-                coins={coins}
-                setCurrentCoin={setCurrentCoin}
-                setOpenModal={setOpenModal}
-            />
+            <div className='home-table__wrapper'>
+                <Table
+                    coins={coins}
+                    setCurrentCoin={setCurrentCoin}
+                    setOpenModal={setOpenModal}
+                />
+            </div>
             <Modal isOpen={openModal} setIsOpen={setOpenModal}>
                 <label htmlFor='homeModal'>Кол-во:</label>
                 <input
